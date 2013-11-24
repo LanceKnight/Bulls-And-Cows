@@ -4,6 +4,7 @@
 	.include "generateRandomNumber.asm"
 	.include "getUserInput.asm"
 	.include "convertStringToHex.asm"
+	.include "checkForBullsAndCows.asm"
 	
 
 main:
@@ -12,7 +13,7 @@ main:
 	jal convertStringToHex   #Converted string is in $s1
 	#Pass $s0 computer generated number and $s1 user generated number
 	#call checkforbulls and cows
-	#jal checkForBullsAndCows
+	jal checkForBullsAndCows
 	
 	
 	
