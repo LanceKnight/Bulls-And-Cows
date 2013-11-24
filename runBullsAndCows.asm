@@ -2,9 +2,11 @@
 	.globl main
 
 	.include "generateRandomNumber.asm"
+	.include "getUserInput.asm"
 
 main:
 	jal generateRandomNumber
+	jal getUserInput
 	
 	
 	
@@ -15,6 +17,8 @@ endOfProgram:
 
 
 #Please enter all the messages of all the files here
-#Convention filename_msg: asciiz "\nPlease enter a sample message"
+#Convention all messages should be grouped by file name
 	.data
+#getUserInput.asm
+userInput: .asciiz   "\nPlease enter a positive number between 0000 and FFFF (4-DIGIT): "
 
