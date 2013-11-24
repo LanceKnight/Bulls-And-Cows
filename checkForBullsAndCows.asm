@@ -1,9 +1,3 @@
-.data
-winString: .asciiz "============================\n       Yeah! You win!\n============================\n\n    (__)\n    /oo\\\\________\n    \\  /          \\---\\\n     \\/        /   \\   \\\n        \\\\_|___\\\\_|/    *\n         ||    YY|\n         ||     ||\n"
-thereAre: .asciiz " There are "
-bullString: .asciiz " bulls.\n"
-cowString: .asciiz " cows.\n"
-
 .text
 
 # $s0 = secret number
