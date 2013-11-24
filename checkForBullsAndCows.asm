@@ -11,9 +11,10 @@
 # $t5 = the 5th least-significant digt after shifting
 # $t6 = parameter for loop control, like i in HHL
 # $t7 = parameter for loop control
-Main:
-addi $s0, $zero, 0x0000F12B # $s0 stores the secret number
-addi $s1, $zero, 0x000023BF # $s1 stores the user input
+#Subroutine it expect $s0 and $s1
+checkForBullsAndCows:
+#addi $s0, $zero, 0x0000F12B # $s0 stores the secret number
+#addi $s1, $zero, 0x000023BF # $s1 stores the user input
 
 # check where there are 4 bulls, which means user wins
 xor $t0, $s0, $s1 # $t0 is the result of secret number( $s0 ) XOR user input( $s1 )
