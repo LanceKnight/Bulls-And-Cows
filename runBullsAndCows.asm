@@ -3,10 +3,12 @@
 
 	.include "generateRandomNumber.asm"
 	.include "getUserInput.asm"
+	.include "convertStringToHex.asm"
 
 main:
 	jal generateRandomNumber
 	jal getUserInput
+	jal convertStringToHex
 	
 	
 	
@@ -21,4 +23,5 @@ endOfProgram:
 	.data
 #getUserInput.asm
 userInput: .asciiz   "\nPlease enter a positive number between 0000 and FFFF (4-DIGIT): "
+userString: .space 16
 
