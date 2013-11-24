@@ -22,6 +22,7 @@ li $s1 , 0 #Initialize Number
 	
 	
  Decimal:
+ 
   	addi $t0 , $t0 , -0x00000030 #This to handle '0' through '9'
 	addi $s0 , $s0 , 1 #Next byte
 	# Basically ABCD ==> 10 * 16 ^ 3 + 11 * 16 ^ 2 + 12 * 16 + 13 * 16 ^ 0
@@ -32,6 +33,7 @@ li $s1 , 0 #Initialize Number
 	j loop
 
 HexUpper:
+
   	addi $t0 , $t0 , -0x00000037 #This to handle 'A' through 'F'
 	addi $s0 , $s0 , 1 #Next byte
 	# Basically ABCD ==> 10 * 16 ^ 3 + 11 * 16 ^ 2 + 12 * 16 + 13 * 16 ^ 0
