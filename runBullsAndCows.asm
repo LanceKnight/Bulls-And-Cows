@@ -17,7 +17,7 @@ main:
 	
 getInput:
         beq $s7 , 0 , 	endOfProgram
-        addi $s7 , $s7 , -50 #To-Do 
+        addi $s7 , $s7 , -20 #To-Do 
         jal getUserInput         #User input as a string is in $a0
 	
 	jal convertStringToHex   #Converted string is in $v1
