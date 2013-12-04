@@ -25,8 +25,12 @@ sameNumberValidation:
 
 
 repetetiveNumbers:
+        beq $a3 , 1 , exitSameNumberValidation
 	la $a0 , repetetiveNumberMsg #load address of userInput into $a0
 	li $v0 , 4 	             #Print String
 	syscall
-	li $v0 , 0   #$v0 = 0 means failure
+	
+	
+exitSameNumberValidation:
+        li $v0 , 0   #$v0 = 0 means failure
 	jr $ra
