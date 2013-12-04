@@ -31,6 +31,8 @@ getInput:
 	
 	move $a0 , $v1           #Move the content of $v1 to $a0 for number validation
 	
+	li $a3 , 0
+	
 	jal sameNumberValidation
 	
 	beq $v0 , 0 , getInput
