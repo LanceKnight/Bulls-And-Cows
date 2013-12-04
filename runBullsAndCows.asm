@@ -40,8 +40,8 @@ getInput:
 	#Pass $s0 computer generated number and $s1 user generated number
 	#call checkforbulls and cows
 	jal checkForBullsAndCows
-	jal musBull
-	jal muscow
+	jal musBulls
+	jal muscows
 	
 	#show score
         addi $s7 , $s7 , -25 #To-Do 
