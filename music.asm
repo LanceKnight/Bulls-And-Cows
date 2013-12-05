@@ -1,6 +1,12 @@
-.data
 .text
-musBulls: add $t0, $t0, $zero
+
+#t8= bulls counter
+#t9= cows counter
+add $t8, $t8, 1
+add $t9, $t9, 1
+musBulls: 
+	  
+	  beq $s4,$zero, musCows
 	  la $t1, 62
 	  move $a0, $t1 #pitch
 	  li $a1, 500 #time
@@ -8,11 +14,12 @@ musBulls: add $t0, $t0, $zero
 	  li $a3, 100 #volume
 	  li $v0, 33 #beep with pause
 	  syscall
-	  beq $t0, 4, done #Branch out when the correct number of tones has played
-	  addi $t0, $t0, 1 #Increase counter if loop must continue
+	  beq $t8, $s4, musCows #Branch out when the correct number of tones has played
+	  addi $t8, $t8, 1 #Increase counter if loop must continue 
 	  j musBulls #Continue loop
 
-musCows: add $t0, $t0, $zero
+musCows: 
+	 beq $s5,$zero, done
 	 la $t1,  69
 	 move $a0, $t1 #pitch
 	 li $a1, 500 #time
@@ -20,9 +27,12 @@ musCows: add $t0, $t0, $zero
 	 li $a3, 100 #volume
 	 li $v0, 33 #beep with pause
 	 syscall
-	 beq $t0, $s5, done #Branch out when the correct number of tones has played
-	 addi $t0, $t0, 1 #Increase counter if loop must continue
+	 beq $t9, $s5, done #Branch out when the correct number of tones has played
+	 addi $t9, $t9, 1 #Increase counter if loop must continue
 	 j musCows #Continue loop
+	 
+
+j musCows
 	 
 done: 
 	jr $ra
