@@ -1,5 +1,4 @@
 ##########################################This function checks the number of bulls and cows#################
-######################################## author: Yunchao Liu ##############################################
 
 
 
@@ -38,6 +37,8 @@ add $t7, $zero, $zero
 #add $s4, $zero, $zero
 #add $s5, $zero, $zero
 #add $s6, $zero, $zero
+add $t8, $t8, 1
+add $t9, $t9, 1
 
 
 
@@ -53,7 +54,7 @@ beq $t0, $zero, Win # if the result of XOR( $t0 ) equals to $zero, jump to label
 addi $sp, $sp, -4
 sw $ra, ($sp)
 
-
+numBulls:
 
 # check the number of bulls
 addi $t2, $zero, 0 # $t2 initialized with 0 will stores the number of bulls
@@ -72,9 +73,9 @@ ElseIf3:
 andi $t3, $t0, 0x00000000F # get the second digit
 bne $t3, $t1, EndIf1
 addi $t2, $t2, 1 # add one to the number of bulls( $t2 ) 
+
 EndIf1:
-
-
+move $s4,$t2
 
 #print out the number of bulls
 la $a0, thereAre
@@ -88,6 +89,8 @@ li $v0, 4
 syscall # print out " bulls."
 
 
+
+numCows:
 
 #check the number of cows
 addi $t2, $zero, 0 # $t2 initialized with 0 will stores the number of cows
@@ -114,7 +117,10 @@ ElseIf6:
 andi $t3, $t0, 0x00000000F # get the second digit
 bne $t3, $t1, EndIf2
 addi $t2, $t2, 1 # add one to the number of cows( $t2 ) 
+
 EndIf2:
+move $s5,$t2
+
 addi $t6, $t6, 1 # i = i++
 bne $t6,$t7, Loop
 
@@ -127,9 +133,14 @@ syscall # print out " There are "
 add $a0, $zero, $t2
 li $v0, 1
 syscall # print out the number of cows
+
 la $a0, cowString
 li $v0, 4
 syscall # print out " cows."
+
+
+
+jal musBulls
 
 
 #restore return address
@@ -162,4 +173,5 @@ srl $t5, $t5, 16 # shift the 5th-significant digit right by 16 digit, which make
 add $t4, $t4, $t5 # add the result of the left shifting( $t4 ) and right shifting( $t5 ), eg. 0x0001 2340 + 0x0000 2341
 andi $t4, $t4, 0x0000FFFF # get the least 4 significant digit eg. 0x 2341
 jr $ra
+
 

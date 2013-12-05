@@ -8,6 +8,7 @@
 	.include "sameNumberValidation.asm"
 	.include "showSecNum.asm"
 	.include "music.asm"
+
 main:
 	addi $sp, $sp, -8
 	sw $t0, ($sp)
@@ -31,19 +32,15 @@ getInput:
 	
 	move $a0 , $v1           #Move the content of $v1 to $a0 for number validation
 	
-	li $a3 , 0
+	li $a3 , 1
 	
 	jal sameNumberValidation
 	
 	beq $v0 , 0 , getInput
 	
-	
-
 	#Pass $s0 computer generated number and $s1 user generated number
 	#call checkforbulls and cows
 	jal checkForBullsAndCows
-	jal musBulls
-	jal musCows
 	
 	#show score
         addi $s7 , $s7 , -25 #To-Do 
@@ -60,6 +57,7 @@ getInput:
 	la $a0 , failureMsg #load address of userInput into $a0
 	li $v0 , 4 	             #Print String
 	syscall
+	
 	
 	#exit
 	li $v0 , 10
