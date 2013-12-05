@@ -1,10 +1,11 @@
 #Name generateRandomNumber
+#Author Ahmed Zouari
 #This function will generate random hex number
 #The Random number will be stored in $v0
 .text
 
 generateRandomNumber:
-                addi $sp , $sp , -4
+                addi $sp , $sp , -4 #Use stack pointer to save $ra to call another function
                 sw   $ra , ($sp)
 
 validateRandomNumber:

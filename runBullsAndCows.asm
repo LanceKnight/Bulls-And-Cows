@@ -43,7 +43,7 @@ getInput:
 	#call checkforbulls and cows
 	jal checkForBullsAndCows
 	jal musBulls
-	jal muscows
+	jal musCows
 	
 	#show score
         addi $s7 , $s7 , -25 #To-Do 
