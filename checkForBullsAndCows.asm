@@ -163,6 +163,9 @@ la $a0, space
 li $v0, 4
 syscall
 
+addi $s4, $zero, 4
+jal musBulls
+
 li $v0, 10
 syscall # exit
 
