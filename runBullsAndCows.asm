@@ -13,7 +13,7 @@ main:
 	addi $sp, $sp, -8
 	sw $t0, ($sp)
 	sw $t1, 4($sp)
-	li  $s7 , 125 #Maximum score is 100 To-Do
+	li  $s7 , 100 #Maximum score is 100 To-Do
 	jal generateRandomNumber #Random number get stored in $v0
 	
 	move $s0 , $v0           #Move number to $s0
@@ -43,14 +43,13 @@ getInput:
 	jal checkForBullsAndCows
 	
 	#show score
-        addi $s7 , $s7 , -25 #To-Do 
         la $a0, scoreMsg
         li $v0, 4
         syscall
         add $a0, $s7, $zero
         li $v0, 1
         syscall
-        
+        addi $s7 , $s7 , -25 #To-Do      
         
 	bne $s7 , $zero , getInput
 	
