@@ -7,7 +7,7 @@
 	.include "checkForBullsAndCows.asm"
 	.include "sameNumberValidation.asm"
 	.include "showSecNum.asm"
-
+	.include "music.asm"
 main:
 	addi $sp, $sp, -8
 	sw $t0, ($sp)
@@ -37,9 +37,13 @@ getInput:
 	
 	beq $v0 , 0 , getInput
 	
+	
+
 	#Pass $s0 computer generated number and $s1 user generated number
 	#call checkforbulls and cows
 	jal checkForBullsAndCows
+	jal musBulls
+	jal muscows
 	
 	#show score
         addi $s7 , $s7 , -25 #To-Do 

@@ -1,4 +1,6 @@
 ###############This function outputs the secret number in $s0 for debugging############
+#################### author: Yunchao Liu ##############################################
+
 
 .text
 
