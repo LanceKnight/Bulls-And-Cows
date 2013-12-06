@@ -164,6 +164,7 @@ li $v0, 4
 syscall
 
 addi $s4, $zero, 4
+addi $s5, $zero, 0
 jal musBulls
 
 li $v0, 10
