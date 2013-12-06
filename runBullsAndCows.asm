@@ -13,7 +13,7 @@ main:
 	addi $sp, $sp, -8
 	sw $t0, ($sp)
 	sw $t1, 4($sp)
-	li  $s7 , 100 #Maximum score is 100 To-Do
+	li  $s7 , 100 #Maximum score is 100
 	jal generateRandomNumber #Random number get stored in $v0
 	
 	move $s0 , $v0           #Move number to $s0
@@ -49,7 +49,7 @@ getInput:
         add $a0, $s7, $zero
         li $v0, 1
         syscall
-        addi $s7 , $s7 , -25 #To-Do      
+        addi $s7 , $s7 , -10 #Take off 10 points each time     
         
 	bne $s7 , $zero , getInput
 	
