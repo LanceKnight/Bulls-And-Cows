@@ -37,8 +37,8 @@ add $t7, $zero, $zero
 #add $s4, $zero, $zero
 #add $s5, $zero, $zero
 #add $s6, $zero, $zero
-add $t8, $t8, 1
-add $t9, $t9, 1
+addi $t8, $zero, 1
+addi $t9, $zero, 1
 
 
 
