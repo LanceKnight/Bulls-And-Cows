@@ -2,8 +2,8 @@
 
 #t8= bulls counter
 #t9= cows counter
-add $t8, $t8, 1
-add $t9, $t9, 1
+addi $t8, $zero, 1
+addi $t9, $zero, 1
 musBulls: 
 	  
 	  beq $s4,$zero, musCows
